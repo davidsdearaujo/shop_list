@@ -2,7 +2,7 @@
 
 Mockup / This project
 
-<img src="screenshots/mockup.jpg" width="50%"/> <img src="screenshots/working.gif" width="50%"/>
+<img src="screenshots/mockup.jpg" style="width:49%"/> <img src="screenshots/working.gif" style="width:49%"/>
 
 ## Getting Started
 
