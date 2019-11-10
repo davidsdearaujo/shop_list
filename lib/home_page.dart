@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-import 'button_animation.dart';
+import 'button_animation2.dart';
 import 'item_widget.dart';
 
 class HomePage extends StatefulWidget {
@@ -10,8 +10,7 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage>
-    with TickerProviderStateMixin, ButtonAnimation {
+class _HomePageState extends State<HomePage> with WidgetsBindingObserver, ButtonAnimation {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,48 +41,9 @@ class _HomePageState extends State<HomePage>
               },
             ),
           ),
-          buildActionButton(),
+          // buildActionButton(),
         ],
       ),
-    );
-  }
-
-  Widget buildActionButton() {
-    return AnimatedBuilder(
-      animation: scrollController,
-      builder: (context, child) {
-        return AnimatedContainer(
-          duration: animationDuration,
-          curve: Curves.easeOutExpo,
-          alignment: bottomProperties.alignment,
-          padding: EdgeInsets.only(bottom: 15),
-          child: FittedBox(
-            child: RaisedButton(
-              color: Colors.black,
-              textColor: Colors.white,
-              elevation: 10,
-              onPressed: () {},
-              shape: bottomProperties.shape,
-              child: Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 10,
-                  vertical: bottomProperties.padding,
-                ),
-                child: Row(
-                  children: <Widget>[
-                    Icon(Icons.add),
-                    if (!bottomProperties.isBottom)
-                      SizedBox(width: 15),
-                    // Padding(padding: EdgeInsets.only(left: 15)),
-                    if (!bottomProperties.isBottom)
-                      Text("ADD NEW ITEM"),
-                  ],
-                ),
-              ),
-            ),
-          ),
-        );
-      },
     );
   }
 }
